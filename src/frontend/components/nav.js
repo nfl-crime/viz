@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
+import { IndexLink, Link } from 'react-router';
 
 class Nav extends React.Component {
   constructor(props) {
@@ -12,7 +12,8 @@ class Nav extends React.Component {
       <nav>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <IndexLink to='/'>Home</IndexLink>
+            <Link to='/about'>About</Link>
           </li>
         </ul>
       </nav>

@@ -14,6 +14,13 @@ gulp.task('dev', () => {
   const compiler = webpack(frontendConfig);
   const server = express();
 
+  server.use(WebpackDevMiddleware(compiler));
+  server.use(WebpackHotMiddleware(compiler));
+
+  server.get('/*', (req, res) => {
+    console.log(req.params);
+  });
+
   // proxy requests to api
   server.use('/api*', (req, res) => {
     request({
@@ -22,9 +29,6 @@ gulp.task('dev', () => {
       method: req.method.toUpperCase()
     }).pipe(res);
   });
-
-  server.use(WebpackDevMiddleware(compiler));
-  server.use(WebpackHotMiddleware(compiler));
 
   server.listen(3000, 'localhost', (err) => {
     if (err) {
