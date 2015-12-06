@@ -19,7 +19,7 @@ var frontendConfig = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new HtmlWebpackPlugin({
-      title: 'Success',
+      title: 'NFL Crime Viz',
       filename: 'index.html',
       template: 'src/frontend/index.template.html',
       inject: true
