@@ -17,10 +17,7 @@ class Application extends React.Component {
     return (
       <div>
         <Nav></Nav>
-        <h1>Shouts</h1>
-        <ul>
-          { this.props.shouts.map((s, i) => <li key={i}>{s}</li>) }
-        </ul>
+        { this.props.children }
       </div>
     );
   }

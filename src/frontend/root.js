@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react';
-import { Router, Route } from 'react-router';
+import { IndexRoute, Router, Route } from 'react-router';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
-import { Application } from './components';
+import { Application, Home, About } from './components';
 import * as reducers from './reducers';
 
 const reducer = combineReducers(reducers);
@@ -22,7 +22,10 @@ export default class Root extends React.Component {
     return (
       <Provider store={ store }>
         <Router history={ history }>
-          <Route path='/' component={ Application } />
+          <Route path='/' component={ Application }>
+            <IndexRoute component={ Home } />
+            <Route name='about' path='about' component={ About } />
+          </Route>
         </Router>
       </Provider>
     );
