@@ -10,13 +10,13 @@ import {TodoService} from './shared/services/todo-service';
 @View({
 	directives: [TodoInput, TodoList],
 	template: `
-		<div>
+    <div>
 			<h1>{{ bar }}</h1>
 
 			<todo-input></todo-input>
 			<todo-list></todo-list>
 		</div>
-	`
+   `
 })
 export class App {
 	/**
